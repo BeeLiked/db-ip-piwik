@@ -2,11 +2,9 @@
 
 ## Description
 
-This non-official DB-IP plugin enables more accurate location lookup in your Matomo (Piwik) visitor log.
+This non-official DB-IP plugin adds an extra Location Provider to Geolocation, providing better accuracy for user location lookup in your Matomo (Piwik) visitor log.
 
-You can use the free API by default for up to 1000 requests per day or subscribe to a commercial DB-IP for an API Key that allows more requests. More details at:
-
-https://db-ip.com
+It uses the free API by default which allows a quota of up to 1000 requests per day. For more requests, a commercial DB-IP API Key must be purschased. More details at: https://db-ip.com
 
 
 
@@ -18,18 +16,31 @@ See http://piwik.org/faq/plugins/#faq_21
 
 __How to I configure the plugin?__
 
-Login as administrator, then go to System > DB-IP.
+After installed, login as administrator.
+
+- Go to __System__ > __DB-IP__ to configure your __API Key__.
+- Go to __Geolocation__ to enable __BeeLikedDBIP__ as a __Location Provider__.
 
 
-__How can I increase the limit?__
+__How can I increase the limit of queries per day?__
 
-Purchase a plan on http://db-ip.com and insert your API key in the settings page.
+Purchase a commercial API Key on https://db-ip.com and insert it in the DB-IP settings page.
+
+
+__What location data can this plugin retrieve?__
+
+This plugin currently supports the following properties: Continent, Country, Region and City.
 
 
 
 ## Change Log
 
-__2.0.0__
+__2.0.2__
+* Improves documentation
+* Improves translations
+* Fixes bug when leaving the API Key empty
+
+__2.0.1__
 * First release for Piwik 2.0
 * Retrieve basic DB-IP API fields: Continent, Country, Region and City
  ​

@@ -80,7 +80,7 @@ class API extends \Piwik\Plugin\API
     {
         require_once PIWIK_INCLUDE_PATH . '/plugins/BeeLikedDBIP/vendor/dbip-client.class.php';
     
-        $dbIpClient = new Client(Option::get('BeeLikedDBIP.APIKey'));
+        $dbIpClient = new Client(self::getAPIKey());
         $result = $dbIpClient->Get_Address_Info($ip);
     
         return $result;

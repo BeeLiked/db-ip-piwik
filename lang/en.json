@@ -2,13 +2,13 @@
     "BeeLikedDBIP": {
 		"DBIP": "DB-IP",
 		"DBIPSettings": "DB-IP Settings",
-		"Instructions": "Remember to activate it by going to <b>System</b> &gt; <b>Geolocation</b> and selecting <b>BeeLikedDBIP</b> as <b>Location Provider</b>.",
+		"Instructions": "Remember to activate it by going to <b>System</b> &gt; <b>Geolocation</b> and selecting <b>DB-IP</b> as <b>Location Provider</b>.",
 		"APIKey": "API Key",
-		"PleaseGetYourAPIKeyFrom": "Leave this field empty to use the free version or get your API key from <a href=\"https://db-ip.com\" target=\"_blank\">db-ip.com</a>.",
+		"PleaseGetYourAPIKeyFrom": "Leave this field empty to use the free version or get a commercial API key from <a href=\"https://db-ip.com\" target=\"_blank\">db-ip.com</a>.",
 
-		"WebServiceInformation": "Web Service Information",
-		"InfoQueriesPerDay": "Queries per Day",
-		"InfoQueriesLeft": "Queries Left",
+		"WebServiceInformation": "API Key Information",
+		"InfoQueriesPerDay": "Max. Queries per Day",
+		"InfoQueriesLeft": "Remaining Queries",
 		"InfoStatus": "Status",
 		"InfoError": "Error",
 
@@ -16,6 +16,11 @@
 		"PleaseEnterAValidAPIKey": "Please enter a valid API key.",
 		"ChangesHasBeenSaved": "Changes has been saved.",
 
-		"FooterInfo": "This is a non-official DB-IP (<a href=\"https://db-ip.com\" target=\"_blank\">db-ip.com</a>) plugin created by BeeLiked (<a href=\"https://beeliked.com\" target=\"_blank\">BeeLiked.com</a>)."
+		"Disclaimer": "This is a non-official DB-IP (<a href=\"https://db-ip.com\" target=\"_blank\">db-ip.com</a>) plugin created by BeeLiked (<a href=\"https://beeliked.com\" target=\"_blank\">BeeLiked.com</a>).",
+
+		"LocationProviderInfoTitle": "DB-IP (API)",
+		"LocationProviderInfoDescription": "This location provider uses the %1$s API to guess visitor's Continent, Country, State and City based on their IP address.%2$s %3$sAPI Key: %4$s %5$s %6$s %7$s",
+		"LocationProviderInfoExtraMessageFreePlan": "You are using a <b>free</b> API Key. You can configure a commercial API Key under <b>System</b> &gt; <b>DB-IP</b>' menu option.",
+		"LocationProviderInfoExtraMessageCommercialPlan": "You are using a commercial API Key."
     }
 }

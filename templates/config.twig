@@ -37,7 +37,7 @@
 
 		<h3>{{'BeeLikedDBIP_WebServiceInformation'|translate}}</h3>
 
-	  {% if infoType == 'ok' %}
+	  {% if infoType == 'commercial' %}
 		<div class="form-group row">
 			<div class="input-field col s4">
 				<input type="text" value="{{infoQueriesPerDay}}" id="infoQueriesPerDay" readonly>
@@ -52,6 +52,13 @@
 				<label for="infoStatus">{{'BeeLikedDBIP_InfoStatus'|translate}}</label>
 			</div>
 		</div>
+		{% elseif infoType == 'free' %}
+		<div class="input-field col s4">
+			<input type="text" value="{{infoQueriesLeft}}" id="infoQueriesLeft" readonly>
+			<label for="infoQueriesLeft">{{'BeeLikedDBIP_InfoQueriesLeft'|translate}}</label>
+		</div>
+		<div class="input-field col s8">
+		</div>
 		{% else %}
 		<div class="form-group row">
 			<div class="input-field col s12">
@@ -65,6 +72,6 @@
 	</form>
 {% endif %}
 
-<p>{{'BeeLikedDBIP_FooterInfo'|translate|raw}}</p>
+<p>{{'BeeLikedDBIP_Disclaimer'|translate|raw}}</p>
 
 {% endblock %}

@@ -22,7 +22,7 @@ use Piwik\Plugins\Marketplace\Api\Exception;
 use Piwik\Site;
 use Piwik\Plugins\LanguagesManager\LanguagesManager;
 use Piwik\View;
-use Piwik\Plugins\SitesManager\API as APISitesManager;
+#use Piwik\Plugins\SitesManager\API as APISitesManager;
 use Piwik\Plugins\BeeLikedDBIP\API as APIDBIP;
 use Piwik\Menu\MenuAdmin;
 use Piwik\Menu\MenuTop;
@@ -56,10 +56,16 @@ class Controller extends \Piwik\Plugin\Controller
             require_once PIWIK_INCLUDE_PATH . '/plugins/BeeLikedDBIP/vendor/dbip-client.class.php';
             $dbIpClient = new Client($apiKey);
             $result = $dbIpClient->Get_Key_Info();
-            $view->assign('infoQueriesPerDay', $result->queriesPerDay);
             $view->assign('infoQueriesLeft', $result->queriesLeft);
-            $view->assign('infoStatus', $result->status);
-            $view->assign('infoType', 'ok');
+            if ($apiKey !== 'free') {
+                $view->assign('infoQueriesPerDay', $result->queriesPerDay);
+                $view->assign('infoStatus', $result->status);
+                $view->assign('infoType', 'commercial');
+            }
+            else {
+                $view->assign('infoType', 'free');
+            }
+            
         } catch (Client_Exception $ex)
         {
             $view->assign('infoError', $ex->getMessage());

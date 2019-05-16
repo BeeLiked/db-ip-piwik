@@ -25,13 +25,20 @@ class BeeLikedDBIP extends LocationProvider
 	 */
 	public function getInfo()
 	{
+        $description = Piwik::translate('BeeLikedDBIP_LocationProviderInfoDescription', array('<b>DB-IP</b>', '<br><br>', '<b>', '</b>', Option::get('BeeLikedDBIP.APIKey'), '<br><br>', Piwik::translate('BeeLikedDBIP_Disclaimer')));
+	    
+	    if (Option::get('BeeLikedDBIP.APIKey')) {
+            $extraMessage = Piwik::translate('BeeLikedDBIP_LocationProviderInfoExtraMessageCommercialPlan', array(''));
+        } else {
+            $extraMessage = Piwik::translate('BeeLikedDBIP_LocationProviderInfoExtraMessageFreePlan', array(''));
+        }
+	    
 		return array(
 			'id'			=> self::ID,
-			'title'			=> self::TITLE,
+			'title'			=> Piwik::translate('BeeLikedDBIP_LocationProviderInfoTitle'),
 			'order'			=> 5,
-			'description'   => '<strong>API Key: </strong>' . Option::get('BeeLikedDBIP.APIKey'),
-            'install_docs'	=> '...',
-			'extra_message'	=> 'You are using a ' . (Option::get('BeeLikedDBIP.APIKey') ? 'free' : 'paid') . ' API Key. You can setup it under <b>System</b> &gt; <b>DB-IP</b> menu option.',
+			'description'   => $description,
+			'extra_message'	=> $extraMessage,
 		);
 	}
 
