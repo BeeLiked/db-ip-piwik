@@ -1,0 +1,21 @@
+{
+    "BeeLikedDBIP": {
+		"DBIP": "DB-IP",
+		"DBIPSettings": "DB-IP Settings",
+		"Instructions": "Remember to activate it by going to <b>System</b> &gt; <b>Geolocation</b> and selecting <b>BeeLikedDBIP</b> as <b>Location Provider</b>.",
+		"APIKey": "API Key",
+		"PleaseGetYourAPIKeyFrom": "Leave this field empty to use the free version or get your API key from <a href=\"https://db-ip.com\" target=\"_blank\">db-ip.com</a>.",
+
+		"WebServiceInformation": "Web Service Information",
+		"InfoQueriesPerDay": "Queries per Day",
+		"InfoQueriesLeft": "Queries Left",
+		"InfoStatus": "Status",
+		"InfoError": "Error",
+
+		"SaveChanges": "Save Changes",
+		"PleaseEnterAValidAPIKey": "Please enter a valid API key.",
+		"ChangesHasBeenSaved": "Changes has been saved.",
+
+		"FooterInfo": "This is a non-official DB-IP (<a href=\"https://db-ip.com\" target=\"_blank\">db-ip.com</a>) plugin created by BeeLiked (<a href=\"https://beeliked.com\" target=\"_blank\">BeeLiked.com</a>)."
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "name": "BeeLikedDBIP",
+    "version": "2.0",
+    "keywords": [
+        "dbip", "geolocation", "visitor location", "ip to location", "beeliked"
+    ],
+    "description": "Use DB-IP geolocation API to lookup for accurate visitor location.",
+    "license": "GPL-3.0+",
+    "homepage": "http:\/\/plugin.beeliked.com\/piwik/db-ip",
+    "authors": [
+        {
+            "name": "BeeLiked",
+            "email": "support@beeliked.com",
+            "homepage": "https:\/\/www.beeliked.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/BeeLiked/db-ip-piwik/issues",
+        "wiki": "https://github.com/BeeLiked/db-ip-piwik/wiki",
+        "source": "https://github.com/BeeLiked/db-ip-piwik"
+    },
+    "require": {
+        "piwik": ">=3.0.0-b1",
+        "php": ">= 5.5.9",
+        "twig/twig": "~1.0"
+    }
+}

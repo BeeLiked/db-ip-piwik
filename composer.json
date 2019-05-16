@@ -1,0 +1,17 @@
+{
+	"name": "BeeLiked/db-ip-piwik",
+	"type": "plugin",
+	"description": "Use DB-IP geolocation API to lookup for accurate visitor location in Piwik 2.0. The API allows Piwik to find the continent, country, region and city that any IP address or hostname originates from. http://db-ip.com",
+	"keywords": ["geolocation", "db-ip", "piwik"],
+	"homepage": "http://www.beeliked.com/",
+	"license": "GPL",
+	"authors": [
+		{
+			"name": "BeeLiked",
+			"email": "support@beeliked.com"
+		}
+	],
+	"require": {
+		"php": ">=5.3"
+	}
+}
