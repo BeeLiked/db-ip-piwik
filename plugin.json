@@ -1,6 +1,6 @@
 {
     "name": "BeeLikedDBIP",
-    "version": "2.0",
+    "version": "2.0.1",
     "keywords": [
         "dbip", "geolocation", "visitor location", "ip to location", "beeliked"
     ],
@@ -21,7 +21,6 @@
     },
     "require": {
         "piwik": ">=3.0.0-b1",
-        "php": ">= 5.5.9",
-        "twig/twig": "~1.0"
+        "php": ">= 5.5.9"
     }
 }
