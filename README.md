@@ -29,7 +29,7 @@ Purchase a commercial API Key on https://db-ip.com and insert it in the DB-IP se
 
 __What location data can this plugin retrieve?__
 
-This plugin currently supports the following properties: Continent, Country, Region and City.
+This plugin currently supports the following properties: Continent, Country, Region, City, ISP, Organization, ZipCode, Latitude, Longitude and Area Code.
 
 
 
