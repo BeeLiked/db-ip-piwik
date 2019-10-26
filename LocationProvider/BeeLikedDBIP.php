@@ -25,14 +25,14 @@ class BeeLikedDBIP extends LocationProvider
 	 */
 	public function getInfo()
 	{
-        $description = Piwik::translate('BeeLikedDBIP_LocationProviderInfoDescription', array('<b>DB-IP</b>', '<br><br>', '<b>', '</b>', Option::get('BeeLikedDBIP.APIKey'), '<br><br>', Piwik::translate('BeeLikedDBIP_Disclaimer')));
-	    
-	    if (Option::get('BeeLikedDBIP.APIKey')) {
-            $extraMessage = Piwik::translate('BeeLikedDBIP_LocationProviderInfoExtraMessageCommercialPlan', array(''));
-        } else {
-            $extraMessage = Piwik::translate('BeeLikedDBIP_LocationProviderInfoExtraMessageFreePlan', array(''));
-        }
-	    
+    $description = Piwik::translate('BeeLikedDBIP_LocationProviderInfoDescription', array('<b>DB-IP</b>', '<br><br>', '<b>', '</b>', Option::get('BeeLikedDBIP.APIKey'), '<br><br>', Piwik::translate('BeeLikedDBIP_Disclaimer')));
+	   
+	  if (Option::get('BeeLikedDBIP.APIKey')) {
+      $extraMessage = Piwik::translate('BeeLikedDBIP_LocationProviderInfoExtraMessageCommercialPlan', array(''));
+    } else {
+      $extraMessage = Piwik::translate('BeeLikedDBIP_LocationProviderInfoExtraMessageFreePlan', array(''));
+    }
+	   
 		return array(
 			'id'			=> self::ID,
 			'title'			=> Piwik::translate('BeeLikedDBIP_LocationProviderInfoTitle'),
@@ -52,14 +52,15 @@ class BeeLikedDBIP extends LocationProvider
 	{
 		$ip = $this->getIpFromInfo($info);
 		$result = $this->getDbIpAddressInfo($ip);
-    	$this->completeLocationResult($result);
+  	$this->completeLocationResult($result);
 		return $result;
 	}
  
 	public function getDbIpAddressInfo($ip)
     {
         $result = API::getIPAddressInfo($ip);
-        return array(
+
+        $location = array(
             self::CONTINENT_CODE_KEY => $result->continentCode,
             self::CONTINENT_NAME_KEY => $result->continentName,
             self::COUNTRY_CODE_KEY => $result->countryCode,
@@ -67,6 +68,31 @@ class BeeLikedDBIP extends LocationProvider
             self::REGION_NAME_KEY => $result->stateProv,
             self::CITY_NAME_KEY => $result->city,
         );
+
+        if (isset($result->isp)) {
+          $location[self::ISP_KEY] = $result->isp;
+        }
+        if (isset($result->organization)) {
+          $location[self::ORG_KEY] = $result->organization;
+        }
+        if (isset($result->zipCode)) {
+          $location[self::POSTAL_CODE_KEY] = $result->zipCode;
+        }
+        if (isset($result->latitude)) {
+          $location[self::LATITUDE_KEY] = $result->latitude;
+        }
+        if (isset($result->longitude)) {
+          $location[self::LONGITUDE_KEY] = $result->longitude;
+        }
+        if (isset($result->phonePrefix)) {
+          if (is_array($result->phonePrefix)) {
+            $location[self::AREA_CODE_KEY] = count($result->phonePrefix) > 0 ? $result->phonePrefix[0] : null;
+          } else {
+            $location[self::AREA_CODE_KEY] = $result->phonePrefix;
+          }
+        }
+        
+        return $location;
     }
 	
 	/**
@@ -81,11 +107,11 @@ class BeeLikedDBIP extends LocationProvider
 
 		// Country & continent information always available
 		$result[self::COUNTRY_CODE_KEY] = true;
-        $result[self::COUNTRY_NAME_KEY] = true;
+    $result[self::COUNTRY_NAME_KEY] = true;
 		$result[self::CONTINENT_CODE_KEY] = true;
-        $result[self::CONTINENT_NAME_KEY] = true;
+    $result[self::CONTINENT_NAME_KEY] = true;
 
-        $response = $this->getDbIpAddressInfo('8.8.8.8');
+    $response = $this->getDbIpAddressInfo('8.8.8.8');
 		
 		if (isset($response->stateProv)) {
 			$result[self::REGION_NAME_KEY] = true;
@@ -103,6 +129,18 @@ class BeeLikedDBIP extends LocationProvider
 		if (isset($response->isp)) {
 			$result[self::ISP_KEY] = true;
 		}
+		
+    if (isset($response->organization)) {
+      $result[self::ORG_KEY] = true;
+    }
+    
+    if (isset($response->zipCode)) {
+      $result[self::POSTAL_CODE_KEY] = true;
+    }
+    
+    if (isset($response->phonePrefix)) {
+      $result[self::AREA_CODE_KEY] = true;
+    }
 
 		return $result;
 	}

@@ -4,7 +4,7 @@
 
 This non-official DB-IP plugin adds an extra Location Provider to Geolocation, providing better accuracy for user location lookup in your Matomo (Piwik) visitor log.
 
-It uses the free API by default which allows a quota of up to 1000 requests per day. For more requests, a commercial DB-IP API Key must be purschased. More details at: https://db-ip.com
+It uses the free API by default which allows a quota of up to 1000 requests per day. For more requests, a commercial DB-IP API Key must be purchased. More details at: https://db-ip.com
 
 
 
@@ -34,6 +34,9 @@ This plugin currently supports the following properties: Continent, Country, Reg
 
 
 ## Change Log
+
+__2.0.3__
+* Add support to Core API by adding ISP, Organization, ZipCode, Latitude, Longitude and Area Code fields
 
 __2.0.2__
 * Improves documentation
